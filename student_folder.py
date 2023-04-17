@@ -11,5 +11,6 @@ class Assignments:
         for file in os.listdir(os_directory):
             filename = os.fsdecode(file)
             if filename.endswith(".py"):
-                all_files.append(filename)
+                filepath = os.path.join(self.directory, filename)
+                all_files.append(filepath)
         return all_files
