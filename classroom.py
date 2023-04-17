@@ -10,4 +10,4 @@ class Classroom:
     def generate_grades(self):
         with open(f"{self.full_course}_grades.txt", "w") as f:
             for student in self.students:
-                f.write(student)
+                f.write(str(student) + "\n")

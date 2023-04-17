@@ -4,21 +4,31 @@ from classroom import Classroom
 import os
 
 class Student_Grader(IOHandler):
-    def __init__(self, testpath, method, class_room):
+    def __init__(self, testpath, classroom):
         super().__init__(testpath)
-        self.method = method
-        self.class_room = class_room
+        self.classroom = classroom
+        self.total_size = self.get_total_size()
     
-    def grade_assignments(self):
-        for student, fname in zip(self.class_room.students, self.class_room.folder.assignments):
-            count = 0
-            for inpt, output in self.dict.items():
-                current_output = self.run(fname, inpt)
-                if (current_output == output):
-                    count += 1
-            student.grade = count / len(self.dict.keys())
+    def get_total_size(self):
+        count = 0
+        for method in self.dict.keys():
+            for item in self.dict[method].values():
+                count += 1
+        return count
 
-    def run(self, file_path, inputs):
+    def grade_assignments(self):
+        for method in self.dict.keys():
+            for student, fname in zip(self.classroom.students, self.classroom.folder.assignments):
+                count = 0
+                for inpt, output in self.dict[method].items():
+                    current_output = self.run(fname, method, inpt)
+                    #print(f"{student.fullname} output on {inpt} is {current_output}")
+                    if (str(current_output) == output):
+                        student.grades.append(1)
+                    else:
+                        student.grades.append(0)
+
+    def run(self, file_path, method, inputs):
         with open(file_path, "r") as f:
             file_str = f.read()
         # Compiles the script into a module
@@ -26,5 +36,5 @@ class Student_Grader(IOHandler):
         # Executes the module's specified method with provided inputs
         namespace = {}
         exec(module, namespace)
-        result = namespace[self.method](inputs)
+        result = namespace[method](inputs)
         return result
