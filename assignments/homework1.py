@@ -1,2 +1,3 @@
 def add_then_square (i):
-    return (i + 1) * (i + 1)
+    n = int(i)
+    return (n + 1) * (n + 1)
