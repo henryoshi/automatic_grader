@@ -1,0 +1,9 @@
+Method:
+add_then_square
+1 : 4
+0 : 1
+10 : 121
+Method:
+add_abc
+henry : henryabc
+abc : abcabc

@@ -5,7 +5,7 @@ class Student:
         self.grades = []
     
     def __str__(self):
-        return f'Final grade of {self.fullname} is {self.average() * 100}%'
+        return f'Final grade of {self.fullname} is {(self.average() * 100):.2f}%'
     
     def average(self):
         total = 0

@@ -3,7 +3,7 @@ from student import Student
 from classroom import Classroom
 import os
 
-class Student_Grader(IOHandler):
+class Assignment_Grader(IOHandler):
     def __init__(self, testpath, classroom):
         super().__init__(testpath)
         self.classroom = classroom
@@ -21,14 +21,15 @@ class Student_Grader(IOHandler):
             for student, fname in zip(self.classroom.students, self.classroom.folder.assignments):
                 count = 0
                 for inpt, output in self.dict[method].items():
+                    
                     current_output = self.run(fname, method, inpt)
-                    #print(f"{student.fullname} output on {inpt} is {current_output}")
+                    print(f"{student.fullname} on {inpt} is {current_output}")
                     if (str(current_output) == output):
                         student.grades.append(1)
                     else:
                         student.grades.append(0)
 
-    def run(self, file_path, method, inputs):
+    def run(self, file_path, method, inpt):
         with open(file_path, "r") as f:
             file_str = f.read()
         # Compiles the script into a module
@@ -36,5 +37,5 @@ class Student_Grader(IOHandler):
         # Executes the module's specified method with provided inputs
         namespace = {}
         exec(module, namespace)
-        result = namespace[method](inputs)
+        result = namespace[method](inpt)
         return result
