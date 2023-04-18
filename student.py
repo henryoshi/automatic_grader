@@ -16,9 +16,9 @@ class Student:
         A method to overwrite the built in object method __str__
         to display the student's name and grade.
         """
-        return f'Final grade of {self.fullname} is {(self.average() * 100):.2f}%'
+        return f'Final grade of {self.fullname} is {(self.get_average() * 100):.2f}%'
     
-    def average(self):
+    def get_average(self):
         """
         A helper method to get the fraction of correct answers
         this student currently has reflected by their grades list.

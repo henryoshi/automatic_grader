@@ -1,4 +1,4 @@
-from assignment_folder import Assignments as A
+from assignment_folder import AssignmentFolder as AF
 
 class Classroom:
     """
@@ -16,7 +16,7 @@ class Classroom:
         self.course_title = course_title
         self.students = students
         self.directory = folder_dir
-        self.folder = A(folder_dir)
+        self.folder = AF(folder_dir)
 
     def generate_grades(self):
         """

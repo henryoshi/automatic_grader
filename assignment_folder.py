@@ -1,6 +1,6 @@
 import os
 
-class Assignments:
+class AssignmentFolder:
     """
     A class to represent the folder of assignments, containing the necessary methods
     to pull filenames and organize the directory.

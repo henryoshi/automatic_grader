@@ -36,11 +36,12 @@ class AssignmentGrader(IOHandler):
         modifying the current student's grade as it does so.
         """
         for method in self.dict.keys():
-            for student, fname in zip(self.classroom.students, self.classroom.folder.assignments):
+            for student, fname in zip(self.classroom.students, 
+                                      self.classroom.folder.assignments):
                 count = 0
                 for inpt, output in self.dict[method].items():
                     current_output = self.run(fname, method, inpt)
-                    print(f"{student.fullname} on {inpt} is {current_output}")
+                    #print(f"{student.fullname} on {inpt} is {current_output}")
                     if (str(current_output) == output):
                         student.grades.append(1)
                     else:
