@@ -1,13 +1,29 @@
 from assignment_folder import Assignments as A
 
 class Classroom:
-    def __init__(self, full_course, students, folder_dir):
-        self.full_course = full_course
+    """
+    A Class representing a classroom, that is, a list of students
+    the course title, and the directory of this classrooms folder
+    of assignments. 
+    """
+    def __init__(self, course_title, students, folder_dir):
+        """
+        A Constructor that takes in a course title (String), a List of Students
+        and the directory needed for file grading (String). Also, calls
+        the Assignments class to create a list of the filenames inside
+        of the provided directory.
+        """
+        self.course_title = course_title
         self.students = students
         self.directory = folder_dir
         self.folder = A(folder_dir)
 
     def generate_grades(self):
-        with open(f"{self.full_course}_grades.txt", "w") as f:
+        """
+        A method that appends to the previously created text file the 
+        grades of each student as well as their name by calling the 
+        built in __str__ function of each student in the field students.
+        """
+        with open(f"{self.course_title}_grades.txt", "w") as f:
             for student in self.students:
                 f.write(str(student) + "\n")
