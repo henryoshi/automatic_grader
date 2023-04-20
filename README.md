@@ -1,27 +1,7 @@
 # automatic_grader
 Repository to store files for EECE 2140's, Student Automatic Grader Project.
 
-Contains classes to represent:
-- Classroom
-    Fields:
-      ArrayList of Students - students
-- Student
-    Fields:
-      String - full_name
-      Student_Folder - assignments
+Contains classes to allow the user, the "Professor", to provide a folder directory and a classroom,
+and return a set of grades representing how many correct outputs the students returned from their respective scripts.
 
-- Student_Folder of Work
-    Fields:
-      ArrayList of Homeworks - homeworks
-- Homework
-    Fields:
-      String - inputs_file
-    Methods:
-      to_text_file(self)
-- Grader
-    Fields:
-      String - outputs_file
-      String - 
-    Methods: 
-      double getOneGrade()
-      
+These outputs are run from a file called "expected_outputs.txt" that provides sets of methods with input output pairs.
