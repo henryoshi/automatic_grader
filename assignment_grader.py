@@ -1,7 +1,6 @@
 from iohandler import IOHandler
 from student import Student
 from classroom import Classroom
-import os
 
 class AssignmentGrader(IOHandler):
     """

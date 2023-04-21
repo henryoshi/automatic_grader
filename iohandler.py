@@ -38,4 +38,5 @@ class IOHandler:
                     inpt, expected = all_lines[j].split(":")
                     inner_dic[inpt.strip()] = expected.strip()
                 dic[all_lines[0]] = inner_dic
+        print(dic)
         return dic

@@ -1,10 +1,12 @@
 Method:
 add_then_square
 1 : 4
+2 : 9
 3 : 16
-5 : 36
+0 : 1
 10 : 121
 Method:
 add_abc
 abc : abcabc
-EECE : EECEabc
+test : testabc
+NEU : NEUabc
