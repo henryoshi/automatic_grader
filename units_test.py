@@ -2,7 +2,6 @@ import unittest
 from assignment_folder import AssignmentFolder as AF
 from assignment_grader import AssignmentGrader as AG
 from classroom import Classroom as C
-from iohandler import IOHandler as IOH
 from prof_management import ProfManager as PM
 from student import Student as S
 
@@ -15,7 +14,6 @@ studs = [s1, s2, s3, s4, s5]
 c1 = C("EECE 2140 - Section 1", studs,"C:/Users/shiel/OneDrive - Northeastern University/Desktop/assignments")
 af1 = AF("C:/Users/shiel/OneDrive - Northeastern University/Desktop/assignments")
 ag1 = AG("expected_outputs.txt", c1)
-ioh1 = IOH("expected_outputs.txt")
 pm1 = PM()
 dictionary = {"add_then_square" : {1 : 4, 2 : 9, 0 : 1, 10 : 121}, "add_abc" : {"abc" : "abcabc", "eece" : "eeceabc"}}
 
@@ -32,5 +30,9 @@ class TestAssignmentGrader(unittest.TestCase):
 
 class TestAssignmentFolder(unittest.TestCase):
     def test_AF(self):
-        self.assertEquals(af1.get_assignments, ["homework1.py"])
-    
+        self.assertEquals(af1.get_assignments, 
+                          ["C:/Users/shiel/OneDrive - Northeastern University/Desktop/assignments/homework1.py", 
+                           "C:/Users/shiel/OneDrive - Northeastern University/Desktop/assignments/homework2.py", 
+                           "C:/Users/shiel/OneDrive - Northeastern University/Desktop/assignments/homework3.py", 
+                           "C:/Users/shiel/OneDrive - Northeastern University/Desktop/assignments/homework4.py", 
+                           "C:/Users/shiel/OneDrive - Northeastern University/Desktop/assignments/homework5.py"])
